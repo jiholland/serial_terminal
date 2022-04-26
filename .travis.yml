@@ -1,0 +1,14 @@
+---
+language: python
+python: "3.8"
+
+# Install ansible, ansible-lint and yamllint
+install:
+  - pip install ansible ansible-lint yamllint
+  - ansible --version
+  - ansible-lint --version
+  - yamllint --version
+
+script:
+  # Syntax check
+  - ansible-lint *
