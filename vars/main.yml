@@ -1,0 +1,8 @@
+---
+# vars file for tcpdump
+
+capture_interface: "{{ ansible_facts.default_ipv4.interface }}"
+
+capture_file: "{{ inventory_hostname }}_{{ ansible_facts.date_time.epoch }}_tcpdump.pcap"
+capture_src: /tmp/{{ capture_file }}
+capture_dest: /tmp/{{ capture_file }}

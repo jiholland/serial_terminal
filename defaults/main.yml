@@ -1,0 +1,4 @@
+---
+# defaults for tcpdump
+
+capture_time: 10 # seconds

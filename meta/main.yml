@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  role_name: tcpdump
+  author: Jørn Ivar Holland
+  description: Tcpdump from target. Fetch .pcap to ansible-controller.
+  license: BSD-3-Clause
+  min_ansible_version: 2.9
+  platforms:
+    - name: macOS
+      versions:
+        - Big-Sur
+  galaxy_tags:
+    - macos
+    - tcpdump
+
+
+dependencies: []
