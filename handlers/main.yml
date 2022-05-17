@@ -6,4 +6,4 @@
     path: "{{ capture_dest }}"
     state: absent
   become: true
-  when: inventory_hostname != 'localhost'
+  when: ansible_connection != 'local'

@@ -20,13 +20,4 @@
     src: "{{ capture_src }}"
     dest: "{{ capture_dest }}"
     flat: true
-  when: inventory_hostname != 'localhost'
-
-- name: ensure tcpdump.pcap has correct permissions
-  ansible.builtin.file:
-    path: "{{ capture_dest }}"
-    owner: "{{ ansible_user_id }}"
-    state: file
-    mode: '0644'
-  become: true
-  delegate_to: localhost
+  when: ansible_connection != 'local'
