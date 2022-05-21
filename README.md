@@ -26,7 +26,6 @@ Example Playbook
 ----------------
 
     ---
-    # ansible-playbook playbook_tcpdump.yml -e "target=localhost"
     - name: tcpdump from target and fetch .pcap to ansible-controller
       hosts: "{{ target }}"
       gather_facts: true
