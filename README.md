@@ -1,5 +1,5 @@
-Role Name
-=========
+tcpdump
+=======
 
 Tcpdump from target. Fetch file.pcap from target to ansible-controller.
 
@@ -26,7 +26,7 @@ Example Playbook
 ----------------
 
     ---
-    - name: tcpdump from target and fetch .pcap to ansible-controller
+    - name: Tcpdump from target and fetch .pcap to ansible-controller
       hosts: "{{ target }}"
       gather_facts: true
       gather_subset: network
