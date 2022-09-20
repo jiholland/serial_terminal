@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: tcpdump
+  standalone: true
   author: Jørn Ivar Holland
   description: Tcpdump from target. Fetch .pcap to ansible-controller.
   license: BSD-3-Clause
