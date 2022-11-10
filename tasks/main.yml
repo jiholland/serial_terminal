@@ -8,6 +8,6 @@
     file_type: any
   register: output
 
-- name: Run this command
+- name: Print output
   ansible.builtin.debug:
     msg: screen {{ output.files[0].path }}
