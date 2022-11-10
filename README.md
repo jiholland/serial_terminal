@@ -1,21 +1,17 @@
-💩 tcpdump
-==========
+serial\_terminal
+================
 
-Tcpdump from target. Fetch file.pcap from target to ansible-controller.
+Connect to device over serial terminal.
 
 Requirements
 ------------
 
-Tcpdump must be installed on target.
+None.
 
 Role Variables
 --------------
 
-- capture\_time
-- capture\_interface
-- capture\_file
-- capture\_src
-- caputer\_dest
+None.
 
 Dependencies
 ------------
@@ -26,14 +22,11 @@ Example Playbook
 ----------------
 
     ---
-    - name: Tcpdump from target and fetch .pcap to ansible-controller
-      hosts: "{{ target }}"
-      gather_facts: true
-      gather_subset: network
+    - name: Connect to device over serial terminal.
+      hosts: localhost
 
       roles:
-         - role: tcpdump
-           tags: tcpdump
+         - role: serial_terminal
 
 License
 -------

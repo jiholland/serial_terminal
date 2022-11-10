@@ -1,23 +1,13 @@
 ---
-# tasks file for tcpdump
+# tasks file for serial_terminal
 
-- name: Print information about the next task
-  ansible.builtin.debug:
-    msg:
-      - "next task: start tcpdump"
-      - "capture time is {{ capture_time }} seconds"
-
-- name: Start tcpdump
-  ansible.builtin.command:
-    cmd: tcpdump -i {{ capture_interface }} -G {{ capture_time }} -W 1 -nn -s0 -v -w {{ capture_src }}
-  become: true
+- name: Get usbserial
+  ansible.builtin.find:
+    paths: /dev
+    patterns: tty.usb*
+    file_type: any
   register: output
-  changed_when: true
-  notify: remove tcpdump.pcap from target
 
-- name: Fetch tcpdump.pcap from remote server
-  ansible.builtin.fetch:
-    src: "{{ capture_src }}"
-    dest: "{{ capture_dest }}"
-    flat: true
-  when: ansible_connection != 'local'
+- name: Run this command
+  ansible.builtin.debug:
+    msg: screen {{ output.files[0].path }}

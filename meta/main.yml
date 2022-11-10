@@ -1,9 +1,9 @@
 ---
 galaxy_info:
-  role_name: tcpdump
+  role_name: serial_terminal
   standalone: true
   author: Jørn Ivar Holland
-  description: Tcpdump from target. Fetch .pcap to ansible-controller.
+  description: Connect to device over serial terminal.
   license: BSD-3-Clause
   min_ansible_version: '2.9'
   platforms:
@@ -11,8 +11,8 @@ galaxy_info:
       versions:
         - Big-Sur
   galaxy_tags:
-    - macos
-    - tcpdump
+    - serial
+    - terminal
 
 
 dependencies: []
