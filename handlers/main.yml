@@ -1,0 +1,6 @@
+---
+
+- name: Cleanup
+  ansible.builtin.file:
+    path: "{{ script_dest }}"
+    state: absent

@@ -1,13 +1,25 @@
 ---
 # tasks file for serial_terminal
 
-- name: Get usbserial
+- name: Get usb-device.
   ansible.builtin.find:
     paths: /dev
-    patterns: tty.usb*
+    patterns: "{{ search_pattern }}"
     file_type: any
   register: output
 
-- name: Print output
-  ansible.builtin.debug:
-    msg: screen {{ output.files[0].path }}
+- name: Assert that usb-device is connected.
+  ansible.builtin.assert:
+    that: output.files[0].path is defined
+    msg: Could not find any devices in /dev/{{ search_pattern }}
+
+- name: Create script.
+  ansible.builtin.template:
+    src: script.j2
+    dest: "{{ script_dest }}"
+    mode: '0755'
+  notify: Cleanup
+
+- name: Open new terminal window and connect to serial-terminal.
+  ansible.builtin.command: open -a Terminal {{ script_dest }}
+  changed_when: false
