@@ -1,5 +1,5 @@
 ---
 # vars file for serial_terminal
 
-search_pattern: tty.usbmodemC*
+search_pattern: tty.usb*
 script_dest: /tmp/serial_terminal.sh
